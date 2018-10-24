@@ -1,31 +1,19 @@
-public class QuickFind {
-
-    public static void main(String[] args) {
-
-        int n = 10;
-        UnionFind uf = new UnionFind(n);
-
-        uf.union(2, 4);
-        uf.union(4, 6);
-        uf.union(8, 9);
-        uf.union(7, 1);
-        uf.union(3, 7);
-
-        System.out.println(uf.isConnected(7, 1));
-        System.out.println(uf.isConnected(2, 0));
-    }
-}
-
-class UnionFind {
+/**
+ * It takes N^2 (quadratic time) and it is very expensive.
+ *
+ * aka Eager Approach
+ */
+public class QuickFindUF {
 
     private int digits[];
 
-    public UnionFind(int n) {
+    public QuickFindUF(int n) {
 
         digits = new int[n];
         init(n);
     }
 
+    // expensive operation
     private void init(int n) {
 
         for(int i = 0; i < n; i++) {
@@ -39,6 +27,7 @@ class UnionFind {
 
             int currentValue = digits[p];
 
+            // expensive operation
             for(int i = 0; i < digits.length; i++) {
 
                 if(digits[i] == currentValue)
@@ -48,14 +37,9 @@ class UnionFind {
         }
     }
 
+    // cheap operation
     public boolean isConnected(int p, int q) {
 
-        if (digits[p] == digits[q]) {
-            return true;
-        }
-
-        return false;
-
-        //return();
+        return digits[p] == digits[q];
     }
 }
