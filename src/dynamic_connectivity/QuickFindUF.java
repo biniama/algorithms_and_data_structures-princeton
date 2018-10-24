@@ -1,7 +1,18 @@
+package dynamic_connectivity;
+
 /**
  * It takes N^2 (quadratic time) and it is very expensive.
  *
  * aka Eager Approach
+ *
+ * * Analysis of Algorithm
+ * ******************************************************************
+ * * algorithm              * initalize     * union     * find
+ * ******************************************************************
+ *
+ *  quick-find                 N               N           1
+ * ******************************************************************
+
  */
 public class QuickFindUF {
 

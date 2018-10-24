@@ -1,6 +1,16 @@
+package dynamic_connectivity;
+
 /**
  *
  * aka Lazy approach - since it avoids to work on anything until we have to
+ *
+ * Analysis of Algorithm
+ * ******************************************************************
+ * * algorithm              * initalize     * union     * find
+ * ******************************************************************
+ *
+ *  quick-union                 N               N           N
+ * ******************************************************************
  */
 public class QuickUnionUF {
 
@@ -20,6 +30,8 @@ public class QuickUnionUF {
         }
     }
 
+    /**[Difference from WeightedQuickUnion]*/
+    // expensive operation
     private int root(int i) {
 
         while(i != digits[i]) {
@@ -33,6 +45,6 @@ public class QuickUnionUF {
     }
 
     public boolean isConnected(int p, int q) {
-        return digits[p] == digits[q];
+        return root(p) == root(q);
     }
 }
